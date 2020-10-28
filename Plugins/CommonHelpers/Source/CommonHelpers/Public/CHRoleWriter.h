@@ -27,10 +27,19 @@ public:
 	void WriteRole();
 
 	UPROPERTY(EditAnywhere, Category="RoleWriter")
-	FColor TextColor;
+	FColor RoleTextColor;
 
 	UPROPERTY(EditAnywhere, Category="RoleWriter")
-	FVector Offset;
+	FColor RemoteRoleTextColor;
+
+	UPROPERTY(EditAnywhere, Category="RoleWriter")
+	FVector RoleOffset;
+
+	UPROPERTY(EditAnywhere, Category="RoleWriter")
+	FVector RemoteRoleOffset;
+
+	UPROPERTY(EditAnywhere, Category="RoleWriter")
+	bool bIsNeedRemoteRole;
 
 	UPROPERTY(EditAnywhere, Category="RoleWriter")
 	bool bIsEnable;

@@ -1,28 +1,32 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 
+#include "GameplayTagContainer.h"
 #include "GameFramework/Actor.h"
+#include "Interfaces/TDAllInteractions.h"
 #include "TDBaseUpgrade.generated.h"
 
 class USphereComponent;
+class UTDBaseDataAssetUpgrade;
 
 UCLASS()
-class TDMULTIPLAYERARENA_API ATDBaseUpgrade : public AActor
+class TDMULTIPLAYERARENA_API ATDBaseUpgrade : public AActor, public ITDAllInteractions
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
+
+public:
 	ATDBaseUpgrade();
 
 	UPROPERTY(VisibleAnywhere)
 	USphereComponent* BodyCollision;
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	UPROPERTY(EditAnywhere, Category="UpgradeSettings")
+	FGameplayTag UpgradeType;
 
+	//	ITDAllInteractions interface
+	virtual void TryInteract(ATDBasePawn* InCaller) override;
+
+protected:
+	virtual void BeginPlay() override;
 };

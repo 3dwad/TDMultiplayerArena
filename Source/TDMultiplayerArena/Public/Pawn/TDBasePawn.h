@@ -11,6 +11,7 @@ class UCapsuleComponent;
 class USpringArmComponent;
 class UCameraComponent;
 class UArrowComponent;
+class UTDCharacteristics;
 class UTDShieldComponent;
 class ATDProjectile;
 
@@ -37,6 +38,9 @@ public:
 
 	UPROPERTY()
 	APlayerController* PlayerController;
+
+	UPROPERTY()
+	UTDCharacteristics* Characteristics;
 
 	UPROPERTY()
 	UTDShieldComponent* ShieldComponent;
@@ -66,28 +70,24 @@ public:
 	void AllowShoot();
 
 	UFUNCTION()
-	void OnRep_Health();
-
-	UPROPERTY(Replicated, ReplicatedUsing = OnRep_Health)
-	float Health;
-
-	UFUNCTION()
 	void OnRep_IsCanFire();
 
 	UPROPERTY(Replicated, ReplicatedUsing = OnRep_IsCanFire)
 	bool bIsCanFire;
 
 	void DealDamage(float InDamage);
+
+	void Interact();
+
+	UFUNCTION(Server,Reliable)
+	void Interact_Server();
 	
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	FTimerHandle RateOfFire_Handle;
