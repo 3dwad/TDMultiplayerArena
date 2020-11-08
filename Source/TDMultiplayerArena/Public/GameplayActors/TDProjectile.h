@@ -8,6 +8,7 @@
 #include "TDProjectile.generated.h"
 
 class UBoxComponent;
+class UDestructibleComponent;
 
 UCLASS()
 class TDMULTIPLAYERARENA_API ATDProjectile : public AActor
@@ -24,6 +25,9 @@ public:
 	float Damage;
 
 	void Flight(float InFPS);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void BlowUp(UDestructibleComponent* InComponent);
 
 	UPROPERTY(VisibleAnywhere, Category="Components")
 	UBoxComponent* BodyCollision;

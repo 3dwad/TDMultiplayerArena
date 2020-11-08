@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{9E1D4D29-415A-065C-D037-CF87326ED9A9}",
+	"EngineAssociation": "{4B5FA4B9-45EE-B9D8-8958-BA992DDCA0DF}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -9,8 +9,15 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine"
+				"Engine",
+				"CoreUObject"
 			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ApexDestruction",
+			"Enabled": true
 		}
 	]
 }

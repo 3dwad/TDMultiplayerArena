@@ -14,7 +14,8 @@ public class TDMultiplayerArena : ModuleRules
 				"TDMultiplayerArena/Public/GameplayActors",
 				"TDMultiplayerArena/Public/PawnComponents",
 				"TDMultiplayerArena/Public/DataAssets/Upgrades",
-				"TDMultiplayerArena/Public/Core"
+				"TDMultiplayerArena/Public/Core",
+				"TDMultiplayerArena/Public/Network",
 			}
 			);
 		
@@ -24,7 +25,8 @@ public class TDMultiplayerArena : ModuleRules
 				"TDMultiplayerArena/Private/GameplayActors",
 				"TDMultiplayerArena/Private/PawnComponents",
 				"TDMultiplayerArena/Private/DataAssets/Upgrades",
-				"TDMultiplayerArena/Private/Core"
+				"TDMultiplayerArena/Private/Core",
+				"TDMultiplayerArena/Private/Network",
 			}
 		);
 
@@ -35,6 +37,9 @@ public class TDMultiplayerArena : ModuleRules
 			"Engine",
 			"InputCore",
 			"GameplayTags",
+			"HTTP",
+			"Json",
+			"ApexDestruction"
 			});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
